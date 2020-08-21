@@ -1,6 +1,6 @@
 
 #pragma once
-#include <stf/MatrixImpl/BaseTemplate.h>
+#include "matrix_impl/base_template.h"
 
 #define STF_MATRIX_H
 
@@ -60,7 +60,7 @@ namespace stf
 	typedef tMat3x2<bool> bMat3x2;
 }
 
-#include <stf/MatrixImpl/MatrixImpl.h>
+#include "matrix_impl/matrix_impl.h"
 
 /* In this file you can extend matrix functionality */
-#include <stf/MatrixImpl/MatrixExt.h>
+#include "matrix_impl/matrix_ext.h"

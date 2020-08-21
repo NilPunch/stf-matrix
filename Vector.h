@@ -1,6 +1,6 @@
 
 #pragma once
-#include <stf/MatrixImpl/BaseTemplate.h>
+#include "matrix_impl/base_template.h"
 
 #define STF_VECTOR_H
 
@@ -44,7 +44,7 @@ namespace stf
 	typedef tVec4<bool> bVec4;
 }
 
-#include <stf/MatrixImpl/VectorImpl.h>
+#include "matrix_impl/vector_impl.h"
 
 /* In this file you can extend vector functionality */
-#include <stf/MatrixImpl/VectorExt.h>
+#include "matrix_impl/vector_ext.h"
