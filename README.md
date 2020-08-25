@@ -10,4 +10,4 @@ It was created with the aim of being free from unnecessary functions and catchin
 Just copy the contents of the `lib` folder into your project and include following files `#include "matrix.h"` or `#include "vector.h"` or both.
 
 # License
-MIT
+[MIT](https://choosealicense.com/licenses/mit/)
