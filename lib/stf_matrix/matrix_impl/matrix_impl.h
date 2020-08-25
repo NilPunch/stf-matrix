@@ -42,7 +42,7 @@ namespace stf
 				for (size_t y = 0; y < THIS_COLS; ++y)
 					this->data[x][y] = Val;
 		}
-		constexpr Matrix(std::initializer_list<Matrix::value_type> Args) noexcept
+		constexpr Matrix(std::initializer_list<Matrix::value_type> Args)
 		{
 			//static_assert(THIS_ROWS * THIS_COLS == Args.size() + 1, "Can't match args to fill matrix");
 			auto from = Args.begin();
@@ -58,7 +58,7 @@ namespace stf
 		const value_type* operator[] (size_t Idx) const { return data[Idx]; }
 
 		template < size_t RHS_ROWS, size_t RHS_COLS >
-		Matrix& operator=(const Matrix<RHS_ROWS, RHS_COLS>& Rhs)
+		Matrix& operator=(const Matrix<RHS_ROWS, RHS_COLS>& Rhs) noexcept
 		{
 			constexpr size_t min_rows = RHS_ROWS > THIS_ROWS ? THIS_ROWS : RHS_ROWS;
 			constexpr size_t min_cols = RHS_COLS > THIS_COLS ? THIS_COLS : RHS_COLS;
@@ -70,7 +70,7 @@ namespace stf
 			return *(this);
 		}
 		template <>
-		Matrix& operator=<THIS_ROWS, THIS_COLS>(const Matrix<THIS_ROWS, THIS_COLS>& Rhs)
+		Matrix& operator=<THIS_ROWS, THIS_COLS>(const Matrix<THIS_ROWS, THIS_COLS>& Rhs) noexcept
 		{
 			for (size_t x = 0; x < THIS_ROWS; ++x)
 				for (size_t y = 0; y < THIS_COLS; ++y)
@@ -80,7 +80,7 @@ namespace stf
 			return *(this);
 		}
 
-		Matrix& operator=(Matrix::value_type Val)
+		Matrix& operator=(Matrix::value_type Val) noexcept
 		{
 			for (size_t x = 0; x < THIS_ROWS; ++x)
 				for (size_t y = 0; y < THIS_COLS; ++y)
@@ -101,7 +101,7 @@ namespace stf
 			return *(this);
 		}
 
-		Matrix& operator+=(const Matrix& Rhs)
+		Matrix& operator+=(const Matrix& Rhs) noexcept
 		{
 			for (size_t x = 0; x < THIS_ROWS; ++x)
 				for (size_t y = 0; y < THIS_COLS; ++y)
@@ -110,14 +110,14 @@ namespace stf
 				}
 			return *(this);
 		}
-		Matrix& operator+=(Matrix::value_type Val)
+		Matrix& operator+=(Matrix::value_type Val) noexcept
 		{
 			for (size_t x = 0; x < THIS_ROWS; ++x)
 				for (size_t y = 0; y < THIS_COLS; ++y)
 					this->data[x][y] += Val;
 			return *(this);
 		}
-		Matrix& operator*=(Matrix::value_type Val)
+		Matrix& operator*=(Matrix::value_type Val) noexcept
 		{
 			for (size_t x = 0; x < THIS_ROWS; ++x)
 				for (size_t y = 0; y < THIS_COLS; ++y)
